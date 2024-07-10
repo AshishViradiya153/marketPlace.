@@ -27,18 +27,15 @@ const SellRoute = () => {
     const [zip, setZip] = useState<null | string>(null);
 
     useEffect(() => {
-        if (state?.status === 'success') {
-            toast.success(state?.message);
-        } else {
-            toast.error(state?.message)
-        }
+        if (state?.status === 'success') toast.success(state?.message);
+        if (state?.status === 'error') toast.error(state?.message)
     }, [state]);
 
 
     return (
-        <div className='flex w-full justify-center items-center pb-40'>
-            <Card>
-                <form className='flex flex-col space-y-4' action={formAction}>
+        <section className='flex w-full justify-center items-center pb-40 px-4'>
+            <Card className='flex max-w-screen-sm w-full'>
+                <form className='flex flex-col space-y-4 w-full' action={formAction}>
                     <CardHeader>
                         <CardTitle>Sell your product with ease</CardTitle>
                         <CardDescription>Describe your product as much as you can so that it can be sold</CardDescription>
@@ -101,11 +98,11 @@ const SellRoute = () => {
                         </div>
                     </CardContent>
                     <CardFooter>
-                        <SubmitBtn />
+                        <SubmitBtn title='Create Product' />
                     </CardFooter>
                 </form>
             </Card>
-        </div>
+        </section>
     )
 }
 
