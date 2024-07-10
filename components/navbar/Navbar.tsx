@@ -10,7 +10,6 @@ import UserNav from './UserNav'
 const Navbar = async () => {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
-    console.log('loplo', user);
 
     return (
         <nav className='relative max-w-7xl w-full flex md:grid md:grid-cols-12 items-center px-4 md:px-8 mx-auto py-7'>

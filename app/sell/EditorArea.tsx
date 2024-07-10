@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
-import { useEditor, EditorContent, type Editor } from "@tiptap/react";
+import { useEditor, EditorContent, type Editor, JSONContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Button } from "@/components/ui/button";
 
@@ -83,20 +83,23 @@ const MenuBar = ({ editor }: { editor: Editor | null }) => {
 };
 
 const EditorArea = () => {
+    const [json, setJson] = useState<null | JSONContent>(null);
     const editor = useEditor({
         extensions: [StarterKit],
-        content: "<p>🌎️...</p>",
+        content: json,
         editorProps: {
             attributes: {
                 class: 'focus:outline-none min-h-[150px] prose prose-sm sm:prose-base'
             }
+        },
+        onUpdate: ({ editor }) => {
+            setJson(editor.getJSON())
         }
     });
 
-    console.log("editor", editor);
-
     return (
         <div>
+            <input type="hidden" name="description" value={JSON.stringify(json)} />
             <MenuBar editor={editor} />
             <EditorContent
                 editor={editor}

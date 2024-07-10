@@ -17,8 +17,6 @@ type userNavProps = {
   user: KindeUser;
 };
 const UserNav = ({ user }: userNavProps) => {
-  console.log('plplplp', user);
-
   const getUserAvatarName = (): string => {
     const firstName = user.given_name as string;
     const lastName = user.family_name as string;
@@ -28,8 +26,6 @@ const UserNav = ({ user }: userNavProps) => {
       firstName.slice(0, 1).toUpperCase() + lastName.slice(0, 1).toUpperCase()
     );
   };
-  console.log('=>', user.family_name);
-
 
   return (
     <DropdownMenu>

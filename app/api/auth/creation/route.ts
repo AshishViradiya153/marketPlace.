@@ -20,10 +20,10 @@ export const GET = async () => {
         dbUser = await prisma.user.create({
             data: {
                 id: user.id,
-                profileImage: user.picture ?? `https://avatar.vercel.sh/${user.family_name}` as string,
-                firstName: user.given_name ?? "" as string,
-                familyName: user.family_name ?? "" as string,
-                email: user.email as string ?? ""
+                profileImage: user.picture ?? "",
+                firstName: user.given_name ?? "",
+                familyName: user.family_name ?? "",
+                email: user.email ?? ""
             }
         })
     }

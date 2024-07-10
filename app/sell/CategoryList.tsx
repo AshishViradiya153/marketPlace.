@@ -15,7 +15,7 @@ type linksProps = {
 export const links: linksProps[] = [
     {
         label: "Templates",
-        name: "templates",
+        name: "template",
         href: "#",
         icon: (
             <DashboardIcon
@@ -32,11 +32,11 @@ export const links: linksProps[] = [
         href: "#",
         icon: <MixIcon className="ml-2" color="#2563eb" width="22" height="22" />,
         id: 3,
-        name: "uiKits",
+        name: "uiKit",
     },
     {
         label: "Icons",
-        name: "icons",
+        name: "icon",
         href: "#",
         icon: (
             <IconJarLogoIcon
@@ -54,6 +54,7 @@ const CategoryList = () => {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
     return (
         <div className="flex space-x-2 flex-row">
+            <input value={selectedCategory || ''} type="hidden" name="category" />
             {links.map((li, index) => (
                 <Card
                     key={index}

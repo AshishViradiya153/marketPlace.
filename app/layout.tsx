@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner"
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
@@ -26,6 +27,7 @@ export default function RootLayout({
         />
         <Navbar />
         {children}
+        <Toaster richColors theme="light" closeButton />
       </body>
     </html>
   );
