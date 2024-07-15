@@ -5,8 +5,8 @@ import { State } from '../sell/action';
 import prisma from '../utils/db';
 
 const userSettingFormSchema = z.object({
-    firstName: z.string().min(3, { message: 'Min Length of 3 required!' }).or(z.literal("")).optional(),
-    familyName: z.string().min(3, { message: 'Min Length of 3 required!' }).or(z.literal("")).optional(),
+    firstName: z.string().min(3, { message: 'Min Length of 3 required!' }),
+    familyName: z.string().min(3, { message: 'Min Length of 3 required!' }),
 });
 
 export const updateUserProfile = async (prevState: any, formData: FormData) => {

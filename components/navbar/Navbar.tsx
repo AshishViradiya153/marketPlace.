@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from '../ui/button'
 import MobileNav from './MobileNav'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
-import UserNav from './UserNav'
+import UserNav from './UserNav';
 
 const Navbar = async () => {
     const { getUser } = getKindeServerSession();
@@ -22,7 +22,6 @@ const Navbar = async () => {
             <div className='md:col-span-3 flex items-center gap-x-2 ms-auto font-medium'>
                 {user ? <UserNav user={user} /> :
                     <>
-
                         <Button variant='default' asChild className='relative'>
                             <LoginLink>
                                 Login
